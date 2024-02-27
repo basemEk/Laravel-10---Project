@@ -1,0 +1,1 @@
+# Hello from a new Laravel 10 tutorial
