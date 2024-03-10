@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
 
     //fetch all users:
     // $users = DB::select('select * from users where id=1');
@@ -41,7 +42,32 @@ Route::get('/', function () {
     //  or by email:
     //  $users = DB::select('select * from users where email=?', ['basem.kreidly@gmail.com']);
 
-    // dd($users);
+
+
+
+    // CRUD OPERATIONS USING QUERY BUILDER
+
+    // $users = DB::table('users')->get();     //instead of select
+        
+    // $users = DB::table('users')->where('id', 9)->get();    //using where
+
+    // $user = DB::table('users')->insert([             //insert new user + hashing its password
+    //     'user-name' => 'Bob',
+    //     'email' => 'bob@hotmail.com',
+    //     'password' => Hash::make('bob123')
+    // ]);
+
+    // $user = DB::table('users')->where('id', 10)->delete();      //delete one specific record
+    
+    // $user = DB::table('users')
+    //           ->where('id', 2)
+    //           ->update(['email' => 'bassem-kreidly@hotmail.com']);
+
+    // $user = DB::table('users')->first();
+
+    // $user = DB::table('users')->find(1);
+
+    // dd($user);
 });
 
 Route::get('/dashboard', function () {
