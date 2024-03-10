@@ -28,6 +28,9 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
+     //responsible for registering Users:
+        
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
