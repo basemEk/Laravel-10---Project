@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::get('/', function () {
     //     ['abcd@test.com', 3]
     // );
 
-        // DELETE A RECORD
+    // DELETE A RECORD
     // $user = DB::delete('delete from users where id = 3');
     
 
@@ -67,7 +68,33 @@ Route::get('/', function () {
 
     // $user = DB::table('users')->find(1);
 
-    // dd($user);
+
+
+
+    // CRUD OPERATIONS WITH ELOQUENT MODELS
+
+    // $users = User::where('id', 1)->first();
+
+    // $users = User::create([
+    //     'user-name' => 'Sartak',
+    //     'email' => 'sartak_112@gmail.com',
+    //     'password' => Hash::make('sartak123')
+    // ]);
+
+    // $users = User::find(12);
+    // $users->update([
+    //     'email' => 'nuzrul123@gmail.com',
+    //     'user-name' => 'Nuzrul',
+    //     'password' => Hash::make('nuzrul123')
+    // ]);
+
+    // $users = User::find(12);
+    // $users->delete();
+
+    // $users = User::all();
+
+
+    // dd($users);
 });
 
 Route::get('/dashboard', function () {
