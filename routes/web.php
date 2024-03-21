@@ -76,9 +76,10 @@ Route::get('/', function () {
     // $users = User::where('id', 1)->first();
 
     // $users = User::create([
-    //     'user-name' => 'Sartak',
-    //     'email' => 'sartak_112@gmail.com',
-    //     'password' => Hash::make('sartak123')
+    //     'id' => '9',
+    //     'user-name' => 'Bingoo',
+    //     'email' => 'bingo11@gmail.com',
+    //     'password' => 'bingo123'
     // ]);
 
     // $users = User::find(12);
@@ -95,6 +96,11 @@ Route::get('/', function () {
 
 
     // dd($users);
+
+
+    // $user = User::create(['user-name' => 'Jack', 'email' => 'jack11@test.com', 'password' => 'jack123']); 
+    // dd($users);
+
 });
 
 Route::get('/dashboard', function () {
