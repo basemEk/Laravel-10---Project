@@ -18,7 +18,7 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
+    return view('welcome');
 
     //fetch all users:
     // $users = DB::select('select * from users where id=1');
@@ -103,8 +103,8 @@ Route::get('/', function () {
 
     // dd($users);
 
-    $users = User::find(2);
-    dd($users->name);
+    // $users = User::find(2);
+    // dd($users->name);
 
 
     // $user = User::create(['user-name' => 'Jack', 'email' => 'jack11@test.com', 'password' => 'jack123']); 

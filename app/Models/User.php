@@ -21,6 +21,7 @@ class User extends Model {
         'password',
     ];
 
+    //Hash the passwords
     protected function password(): Attribute
     {
         return Attribute::make(
@@ -28,6 +29,7 @@ class User extends Model {
         );
     }
 
+    //Capitalize the names
     protected function name(): Attribute
     {
         return Attribute::make(
