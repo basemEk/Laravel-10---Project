@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as AuthenticatableUser;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model {
-
-    use HasFactory;
+class User extends AuthenticatableUser implements Authenticatable
+{
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -16,24 +17,43 @@ class User extends Model {
      * @var array
      */
     protected $fillable = [
-        'name', // Add other attributes as needed
+        'name',
         'email',
         'password',
     ];
 
-    //Hash the passwords
-    protected function password(): Attribute
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    /**
+     * Hash the passwords.
+     */
+    public function setPasswordAttribute($value)
     {
-        return Attribute::make(
-            set: fn (string $value) => bcrypt($value),
-        );
+        $this->attributes['password'] = bcrypt($value);
     }
 
-    //Capitalize the names
-    protected function name(): Attribute
+    /**
+     * Capitalize the names.
+     */
+    public function setNameAttribute($value)
     {
-        return Attribute::make(
-            get: fn (string $value) => strtoupper($value),
-        );
+        $this->attributes['name'] = strtoupper($value);
     }
 }
