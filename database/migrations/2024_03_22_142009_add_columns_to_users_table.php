@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -13,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            DB::statement('ALTER TABLE users CHANGE COLUMN `username` `user-name` VARCHAR(255)');
+            $table->bigIncrements('id')->first();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
+            // Add any other additional columns here
         });
     }
 
@@ -23,7 +26,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            DB::statement('ALTER TABLE users CHANGE COLUMN `user-name` `username` VARCHAR(255)');
+            //
         });
     }
 };

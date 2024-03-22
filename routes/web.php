@@ -76,20 +76,26 @@ Route::get('/', function () {
     // $users = User::where('id', 1)->first();
 
     // $users = User::create([
-    //     'id' => '9',
-    //     'user-name' => 'Bingoo',
-    //     'email' => 'bingo11@gmail.com',
-    //     'password' => 'bingo123'
+    //     'name' => 'Samar',
+    //     'email' => 'samar505@gmail.com',
+    //     'password' => 'samar123'
     // ]);
 
-    // $users = User::find(12);
+    // $users = User::find(25);
     // $users->update([
-    //     'email' => 'nuzrul123@gmail.com',
-    //     'user-name' => 'Nuzrul',
-    //     'password' => Hash::make('nuzrul123')
+    //     'name' => 'Tarekk',
+    //     'email' => 't_saleh13@gmail.com',
+    //     'password' => bcrypt('hisham123')
     // ]);
 
-    // $users = User::find(12);
+    // $users = User::find(25);
+    // $users->update([
+    //     'name' => 'Tarekk',
+    //     'email' => 't_saleh13@gmail.com',
+    //     'password' => bcrypt('hisham123')
+    // ]);
+
+    // $users = User::find(1);
     // $users->delete();
 
     // $users = User::all();
@@ -99,7 +105,8 @@ Route::get('/', function () {
 
 
     // $user = User::create(['user-name' => 'Jack', 'email' => 'jack11@test.com', 'password' => 'jack123']); 
-    // dd($users);
+    // dd($users->{'user-name'});
+
 
 });
 
