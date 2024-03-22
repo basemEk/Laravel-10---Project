@@ -27,4 +27,11 @@ class User extends Model {
             set: fn (string $value) => bcrypt($value),
         );
     }
+
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => strtoupper($value),
+        );
+    }
 }

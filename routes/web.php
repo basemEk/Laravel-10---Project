@@ -103,6 +103,9 @@ Route::get('/', function () {
 
     // dd($users);
 
+    $users = User::find(2);
+    dd($users->name);
+
 
     // $user = User::create(['user-name' => 'Jack', 'email' => 'jack11@test.com', 'password' => 'jack123']); 
     // dd($users->{'user-name'});
